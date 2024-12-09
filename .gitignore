@@ -1,0 +1,9 @@
+echo "# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+
+# Build artifacts
+*.node" >> .gitignore
+node_modules

@@ -1,0 +1,157 @@
+/* Color Variables */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --black: #141216;
+  --dark-grey: #514f48;
+  --grey: #a59f8d;
+  --soft-grey: #d1c8ad;
+  --silver: #eee6cf;
+  --back-cream: #f9f5e9;
+  --white: #ffffff;
+  --pink: #f47fa;
+  --dark-blue: #3e88fb;
+  --yellow: #f8d14b;
+  --orange: #f9a661;
+  --green: #b8d22f;
+  --light-blue: #8cddf;
+  --red: #ff5770;
+  --background: #141216;
+
+  /* Add new technology-specific colors */
+  --swift-color: #3E88FB;
+  --cad-design-color: #FF5770;
+  --python-color: #F9A661;
+  --react-color: #F4C7FA;
+  --nextjs-color: #F8D14B;
+  --supabase-color: #B8D22F;
+  --flutter-color: #8CDDFF;
+}
+
+/* Headings */
+h1 {
+  font-family: var(--font-inconsolata), monospace;
+  font-weight: 400;
+  font-size: 52px;
+  color: var(--white);
+}
+
+h2 {
+  font-family: var(--font-inconsolata), monospace;
+  font-weight: 400;
+  font-size: 44px;
+  color: var(--white);
+}
+
+h3 {
+  font-family: var(--font-inconsolata), monospace;
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--white);
+}
+
+h4 {
+  font-family: var(--font-inconsolata), monospace;
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--white);
+}
+
+h5 {
+  font-family: var(--font-inconsolata), monospace;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--white);
+}
+
+h6 {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--grey);
+}
+
+/* Paragraphs */
+.paragraph-large {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.paragraph-medium {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.paragraph {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.paragraph-small {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--white);
+}
+
+/* Base styles */
+body {
+  background-color: #141216;
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add this new class for the section container with lines */
+.section-with-lines {
+  position: relative;
+  padding: 80px 0;
+  border-bottom: 2px solid var(--white);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove any margins that might create extra space */
+.section-with-lines + .section-with-lines {
+  margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Add font utility classes */
+.font-inconsolata {
+  font-family: var(--font-inconsolata), monospace;
+}
+
+.font-open-sans {
+  font-family: var(--font-open-sans), sans-serif;
+}
