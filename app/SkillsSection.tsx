@@ -1,3 +1,6 @@
+"use client"
+
+import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import styles from './SkillsSection.module.css'
 
@@ -12,8 +15,36 @@ const skills = [
 ]
 
 export default function SkillsSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const skillsRef = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.animate)
+          } else {
+            entry.target.classList.remove(styles.animate)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    skillsRef.current.forEach((skill) => {
+      if (skill) observer.observe(skill)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className={`${styles.skillsSection} section-with-lines`}>
+    <section ref={sectionRef} className={`${styles.skillsSection} section-with-lines`}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftSide}>
@@ -26,7 +57,15 @@ export default function SkillsSection() {
           </div>
           <div className={styles.rightSide}>
             {skills.map((skill, index) => (
-              <div key={index} className={styles.skillItem}>
+              <div 
+                key={index} 
+                className={styles.skillItem}
+                ref={(el) => {
+                  if (el) {
+                    skillsRef.current[index] = el;
+                  }
+                }}
+              >
                 <Image 
                   src={skill.icon} 
                   alt={skill.title} 
@@ -42,3 +81,4 @@ export default function SkillsSection() {
     </section>
   )
 }
+

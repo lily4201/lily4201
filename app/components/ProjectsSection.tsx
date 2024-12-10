@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { projects } from '@/app/data/projects'
@@ -16,8 +17,36 @@ const TagIcon: { [key: string]: string } = {
 }
 
 export default function ProjectsSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const projectRefs = useRef<(HTMLAnchorElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.animate)
+          } else {
+            entry.target.classList.remove(styles.animate)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    projectRefs.current.forEach((project) => {
+      if (project) observer.observe(project)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className={`${styles.projectsSection} section-with-lines`}>
+    <section ref={sectionRef} className={`${styles.projectsSection} section-with-lines`}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.leftSide}>
@@ -29,6 +58,11 @@ export default function ProjectsSection() {
                 href={`/projects/${encodeURIComponent(project.title)}`}
                 key={index}
                 className={styles.projectCard}
+                ref={(el) => {
+                  if (el) {
+                    projectRefs.current[index] = el;
+                  }
+                }}
               >
                 <div className={styles.projectContent}>
                   <Image

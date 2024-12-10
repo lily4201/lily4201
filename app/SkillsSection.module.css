@@ -1,75 +1,92 @@
 .skillsSection {
-    background-color: var(--background);
-    width: 100%;
-  }
-  
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  
+  background-color: var(--background);
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skillsSection.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 120px;
+  padding: 80px 0;
+}
+
+.leftSide {
+  flex: 0 0 400px;
+}
+
+.leftSide h2 {
+  font-size: 52px;
+  margin: 0 0 32px 0;
+  font-family: var(--font-inconsolata), monospace;
+}
+
+.leftSide p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--white);
+  max-width: 400px;
+}
+
+.rightSide {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skillItem.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.skillItem span {
+  color: var(--white);
+  font-family: var(--font-inconsolata), monospace;
+  font-size: 24px;
+}
+
+.skillItem img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
   .content {
-    display: flex;
-    justify-content: space-between;
-    gap: 120px;
-    padding: 80px 0;
-  }
-  
-  .leftSide {
-    flex: 0 0 400px;
-  }
-  
-  .leftSide h2 {
-    font-size: 52px;
-    margin: 0 0 32px 0;
-    font-family: var(--font-inconsolata), monospace;
-  }
-  
-  .leftSide p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--white);
-    max-width: 400px;
-  }
-  
-  .rightSide {
-    flex: 0 0 400px;
-    display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 48px;
   }
-  
+
+  .leftSide, .rightSide {
+    flex: 1;
+  }
+
   .skillItem {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+    gap: 16px;
   }
-  
-  .skillItem span {
-    color: var(--white);
-    font-family: var(--font-inconsolata), monospace;
-    font-size: 24px;
-  }
-  
-  .skillItem img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
-  
-  @media (max-width: 768px) {
-    .content {
-      flex-direction: column;
-      gap: 48px;
-    }
-  
-    .leftSide, .rightSide {
-      flex: 1;
-    }
-  
-    .skillItem {
-      gap: 16px;
-    }
-  }
+}
+
