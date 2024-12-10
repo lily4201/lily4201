@@ -19,10 +19,9 @@ export default function SkillsSection() {
           <div className={styles.leftSide}>
             <h2>My Skills</h2>
             <p className="paragraph-large">
-              Neque porro quisquam est, qui dolorem ipsum quia dolor
-              sit amet, consectetur, adipisci velit, sed quia non numquam
-              eius modi tempora incidunt ut labore et dolore magnam
-              aliquam quaerat voluptatem.
+              I am passionate about creating innovative solutions through technology. 
+              My diverse skill set spans mobile and web development, allowing me to 
+              build seamless experiences across multiple platforms.
             </p>
           </div>
           <div className={styles.rightSide}>

@@ -18,6 +18,7 @@ const TagIcon: { [key: string]: string } = {
 export default function ProjectsSection() {
   return (
     <section className={styles.projectsSection}>
+      <h2>My Projects</h2>
       <div className={styles.projectsGrid}>
         {projects.slice(0, 6).map((project, index) => (
           <Link 
