@@ -22,8 +22,7 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-[120px] font-light mb-6 font-inconsolata">My Projects</h1>
         <p className="text-2xl mb-16 max-w-3xl tracking-wide font-open-sans">
-          I'VE WORKED ON A VARIETY OF DIFFERENT TYPES OF PROJECTS FOR DIFFERENT
-          CLIENTS TO SUIT THEIR INDIVIDUAL NEEDS.
+          I'VE WORKED ON A VARIETY OF DIFFERENT TYPES OF PROJECTS
         </p>
 
         {/* Technology Tags */}
