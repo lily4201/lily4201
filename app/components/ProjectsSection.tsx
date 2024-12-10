@@ -20,7 +20,7 @@ export default function ProjectsSection() {
     <section className={`${styles.projectsSection} section-with-lines`}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.titleSide}>
+          <div className={styles.leftSide}>
             <h2>My Projects</h2>
           </div>
           <div className={styles.projectsGrid}>
